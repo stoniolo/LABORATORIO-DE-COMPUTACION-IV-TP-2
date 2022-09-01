@@ -1,6 +1,6 @@
 package ejercicio1;
 
-public class Profesor extends Empleado{
+public class Profesor extends Empleado implements Comparable<Profesor>{
 
 	//Attributes
 	
@@ -22,6 +22,28 @@ public class Profesor extends Empleado{
 			antiguedadDocente = 0;
 		}
 		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = super.hashCode();
+			result = prime * result + antiguedadDocente;
+			result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			Profesor other = (Profesor) obj;
+			if (antiguedadDocente != other.antiguedadDocente)
+				return false;
+			if (cargo == null) {
+				if (other.cargo != null)
+					return false;
+			} else if (!cargo.equals(other.cargo))
+				return false;
+			return true;
+		}
+
 		public Profesor(String cargo, int antiguedad) 
 		{
 			this.cargo = cargo;
@@ -45,6 +67,21 @@ public class Profesor extends Empleado{
 
 		public void setAntiguedadDocente(int antiguedadDocente) {
 			this.antiguedadDocente = antiguedadDocente;
+		}
+
+		@Override
+		public int compareTo(Profesor o) {
+			
+			if(o.getAntiguedadDocente() == this.antiguedadDocente) return 0;
+			
+			if(o.getAntiguedadDocente() < this.antiguedadDocente)
+				{
+				
+				return -1;
+				
+				}
+			
+			return 1;
 		}	
 		
 }
