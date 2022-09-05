@@ -16,6 +16,11 @@ public class EdificioDeOficinas extends Edificio{
 	public void setNumeroDeOficinas(int numeroDeOficinas) {
 		NumeroDeOficinas = numeroDeOficinas;
 	}
+
+	@Override
+	public String toString() {
+		return "EdificioDeOficinas [NumeroDeOficinas=" + NumeroDeOficinas + " Superficie=" + this.getSuperficieEdificio() + "]";
+	}
 	
 	
 }

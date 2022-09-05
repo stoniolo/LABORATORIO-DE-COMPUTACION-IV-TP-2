@@ -16,6 +16,11 @@ public class Edificio {
 	public void setSuperficieEdificio(double superficieEdificio) {
 		SuperficieEdificio = superficieEdificio;
 	}
+
+	@Override
+	public String toString() {
+		return "Edificio [SuperficieEdificio=" + SuperficieEdificio + "]";
+	}
 	
 	
 }
